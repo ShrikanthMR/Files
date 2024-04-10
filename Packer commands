@@ -1,0 +1,10 @@
+#This command displays the version of Packer currently installed on your system.
+packer version
+#to run the docker image using packer
+packer build filename.hcl
+#to check the syntax and configuration of the Packer template file without actually building any images. It's useful for catching errors in the template before attempting a build.
+packer validate filename.hcl
+#to create a docker tar file
+docker save cct-dev-rk > cct-dev-rk.tar
+#This command forces Packer to rebuild images even if they already exist. Useful for ensuring that images are always up to date.
+packer build -force
