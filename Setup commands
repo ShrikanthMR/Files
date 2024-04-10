@@ -1,0 +1,41 @@
+#This command displays the version of Packer currently installed on your system.
+packer version
+
+navigate to each folder , cct, dev etc. 
+to add a new user - create a new folder - copy all files.
+Change filenames and content to reflect the new user name.
+
+Make sure that variables.pkr.hcl file is a symbolic link to the variables.pkr.hcl in common
+use the command:
+mklink  ./variables.prk.hcl ..\..\variables.pkr.hcl 
+#to check the syntax and configuration of the Packer template file without actually building any images. It's useful for catching errors in the template before attempting a build.
+packer validate .
+
+#to run the docker image using packer 
+packer build .
+
+#to create a docker tar file
+docker save cct-dev-rk > cct-dev-rk.tar
+
+#This command forces Packer to rebuild images even if they already exist. Useful for ensuring that images are always up to date.
+packer build -force
+
+#to load docker .tar file into your docker environment
+docker load --input filename.tar
+#this will create a docker inside a docker and only the db gets connected to the server
+docker run -it-v C:\docker_volume_home:/home/rk -v c:\src:/home/rk/src -v /var/run/docker.sock:/var/run/docker.sock -p 9000:9000 --entrypoint /usr/bin/bash cct-dev-rk
+
+#This command will update your package lists to get the latest information about available packages and then install dos2unix on your system.
+sudo apt install dos2unix
+
+#this takes a long time to get installed so you can use verbose flag if want or wait 
+pipenv install
+
+#creates virtual environment
+pipenv shell
+
+#It'll install in the local 
+pip install googlemaps
+
+sudo dos2unix run.sh
+run.sh
